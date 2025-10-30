@@ -1,0 +1,150 @@
+\documentclass{article}
+
+\input{preamble}
+\usepackage[margin=1in, landscape]{geometry}
+\usepackage{nopageno}
+
+\DeclareMathOperator{\nm}{nm}
+%\DeclareMathOperator{\tr}{tr}
+
+\begin{document}
+
+\noindent
+\(
+	\Sigma_3 = 
+		\langle 
+			\tau, \sigma 
+			\mid 
+			\tau^2 = \sigma^3 = 1,\ \tau \sigma \tau = \sigma^2 
+		\rangle
+\)
+
+\hspace*{-2.5cm}
+\(
+	\begin{tikzcd}[row sep = 70, column sep=200]
+		&
+			\bigsfrac{\Z[s, W]}{( s^2 - 1, Ws - W, W^2 - W - s - 1 )}
+			\ar[dl, 
+				bend right=20, 
+				"\begin{array}{l}
+					s \mapsto 1\\
+					W \mapsto \lambda + \lambda^2
+				\end{array}" description, near end
+				]
+			\ar[ddr,
+				bend right=15,
+				"\begin{array}{l}
+					s \mapsto s\\
+					W \mapsto 1 + s
+				\end{array}" description
+				]
+			\ar[ddd,
+				bend right=20,
+				"\begin{array}{l}
+					s \mapsto 1\\
+					W \mapsto 2
+				\end{array}" description, near start
+				]
+		& 
+		\\[1cm]
+			\bigsfrac{\Sigma_3}{C_3} \racts \bigsfrac{\Z[\lambda]}{(\lambda^3 - 1)}
+				\ar[ur, 
+					bend right=20, 
+					orange, 
+					"{\begin{array}{l}
+						1 \mapsto 1 + s\\
+						\lambda, \lambda^2 \mapsto W
+					  \end{array}}"{description, near start}
+					] 
+				\ar[ur, 
+					blue, 
+					"\begin{array}{l}
+						\lambda \mapsto 1\\
+						\lambda^2 \mapsto 1
+					\end{array}" description
+					] 
+				\ar[ddr,
+					bend right=20,
+					"\lambda \mapsto 1"{description, near end}
+					]
+		& 
+		& 
+		\\[1cm]
+		& 
+		& 
+			\bigsfrac{\Z[s]}{(s^2 - 1)}
+				\ar[dl, 
+					bend right=25,
+					"s \mapsto 1" description
+					]
+				\ar[uul,
+					bend right=20,
+					orange,
+					"{\begin{array}{l}
+						1 \mapsto 1 + W \\
+						s \mapsto s + W
+					  \end{array}
+					}" description
+					]
+				\ar[uul,
+					blue,
+					"\begin{array}{l}
+						s \mapsto s
+					\end{array}" description
+					]
+		\\[1cm]
+		& 
+			\Z 
+				\ar[ur, 
+					blue, 
+					"n \mapsto \left(\frac{n^2 + n}{2}\right) 
+						+ \left(\frac{n^2 - n}{2}\right)s" description
+					]
+				\ar[ur, 
+					orange, 
+					bend right=25,
+					"1 \mapsto 1 + s" description
+					]
+				\ar[uul,
+					orange,
+					bend right=20,
+					"1 \mapsto 1 + \lambda + \lambda^2"{description, near end} 
+					]
+				\ar[uul,
+					blue,
+					"n \mapsto \left(\frac{n^3 + 2n}{3}\right)
+						+ \left(\frac{n^3 - n}{3}\right)\lambda
+						+ \left(\frac{n^3 - n}{3}\right)\lambda^2"
+						description
+					]
+				\ar[uuu, 
+					blue,
+					"\begin{array}{l}
+						n \mapsto \left(\frac{n^2(n^4 + 3n - 2)}{6}\right)\\
+						\phantom{n \mapsto} 
+							+ \left(\frac{n^2(n^4 - 3n + 2)}{6}\right)s\\
+						\phantom{n \mapsto} 
+							+ \left(\frac{n^2(n^4 - 1)}{3}\right)W
+					\end{array}"
+						description
+					]
+				\ar[uuu,
+					orange,
+					bend right=22,
+					"1 \mapsto 1 + s + 2W" description, near start
+					]
+		& 
+	\end{tikzcd}
+\)
+\\
+\(
+	\nm_{C_3}^{\Sigma_3}(a + b) = \nm_{C_3}^{\Sigma_3}(a) + \nm_{C_3}^{\Sigma_3}(b) + \tr_{C_3}^{\Sigma_3}\big(a(\tau C_3 \cdot b)\big)
+\)
+\\[1em]
+\(
+	\bigsfrac{\Sigma_3}{C_3} \racts \bigsfrac{\Z[\lambda]}{(\lambda^3 - 1)}
+	\quad \colon \quad 
+	\tau C_3 \cdot \lambda = \lambda^2 \text{ and } \tau C_3 \cdot \lambda^2 = \lambda
+\)
+
+\end{document}
