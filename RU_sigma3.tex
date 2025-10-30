@@ -1,11 +1,26 @@
 \documentclass{article}
 
-\input{preamble}
+%\input{preamble}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{tikz-cd}
 \usepackage[margin=1in, landscape]{geometry}
 \usepackage{nopageno}
 
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\racts}{\hspace*{0.25em}\scalebox{1.2}%
+{\rotatebox[origin=c]{-90}{$\circlearrowright$}}\hspace*{0.25em}}
+
 \DeclareMathOperator{\nm}{nm}
-%\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\tr}{tr}
+
+%%% slanted fractions for nice looking quotients
+\newcommand{\ssfrac}[2]{
+	\mathchoice{\raisebox{5pt}{$#1$}\!\big/\!\raisebox{-5pt}{$#2$}}
+		{{}^{#1}\!/_{\!#2}}{ #1 /  #2}{ #1 /  #2}
+	} % temporary command, please ignore
+\newcommand{\sfrac}[2]{{}^{#1}\!/_{\!#2}} % slanted fraction
+\newcommand{\bigsfrac}[2]{\displaystyle \ssfrac{#1}{#2}} % big slanted fraction
 
 \begin{document}
 
