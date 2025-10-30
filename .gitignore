@@ -1,0 +1,14 @@
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.log
+*.out
+*.toc
+*.synctex*
+
+*.DS_Store
+
+## Intermediate documents:
+*.dvi
+*.ps
+*.eps
+*.pdf
