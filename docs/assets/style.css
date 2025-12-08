@@ -59,3 +59,12 @@ footer {
     color: #999;
     font-size: 0.9rem;
 }
+
+a {
+    color: #2d86c0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
