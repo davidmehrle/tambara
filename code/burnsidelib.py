@@ -28,6 +28,24 @@ class BurnsideRingElement(QuotientRingElement):
     def list(self):
         return list(self._coeffs)
 
+    def res(self, H):
+        A_G = self.parent()
+        G = A_G.group()
+        A_H = BurnsideRing(H)
+        if H.Order() == 1:
+            return self.marks()[0] * A_H.gens()[0]
+        if "res_H" not in A_G._tambara_operation_cache:
+            A_G._tambara_operation_cache["res_H"] = matrix(
+                ZZ,
+                A_G._num_cc_subgroups,
+                A_H._num_cc_subgroups,
+                lambda i, j: (
+                    1 if G.IsConjugate(A_G._cc_reps[i], A_H._cc_reps[j]) else 0
+                ),
+            )
+        marks_res_X = self.marks() * A_G._tambara_operation_cache["res_H"]
+        return A_H.from_marks(marks_res_X)
+
     def _repr_(self):
         gen_names = self.parent().gen_names()
         return " + ".join(
@@ -74,6 +92,7 @@ class BurnsideRing(QuotientRing_generic, Parent):
                         for k, coeff in enumerate(prod_marks * self._tommat_inv)
                     )
                 )
+        self._tambara_operation_cache = dict()
         super().__init__(base_ring, base_ring.ideal(relations), None)
 
     def gen_names(self):
@@ -85,6 +104,12 @@ class BurnsideRing(QuotientRing_generic, Parent):
     # Returns the table of marks as an integral matrix, as computed by GAP
     def table_of_marks(self):
         return self._tommat
+
+    def from_vec(self, v):
+        return sum(c * self.gens()[i] for i, c in enumerate(v))
+
+    def from_marks(self, v):
+        return self.from_vec(vector(ZZ, v) * self._tommat_inv)
 
     def _repr_(self):
         return f"Burnside ring of {self._group}"
