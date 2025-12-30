@@ -11,9 +11,5 @@
 *.eps
 *.pdf
 
-## Python stuff
-.python-version
-uv.lock
-
 ## MacOS stuff
 *.DS_Store
