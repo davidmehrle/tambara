@@ -7,6 +7,13 @@ env = Environment(loader=FileSystemLoader("templates"))
 output_dir = Path("output")
 output_dir.mkdir(exist_ok=True)
 
+### Generate plain pages ###
+
+## index.html
+(output_dir/"index.html").write_text(env.get_template("index.html").render())
+## about.html
+(output_dir/"about.html").write_text(env.get_template("about.html").render())
+
 ### Generate pages for groups ###
 
 group_template = env.get_template("group.html")

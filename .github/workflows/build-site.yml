@@ -40,14 +40,14 @@ jobs:
           cd web_source
           uv run python gen_pages.py
 
-      - name: Move output to /docs
-        run: |
-          mv web_source/output/* docs/
+      # - name: Move output to /docs
+      #   run: |
+      #     mv web_source/output/* docs/
 
       - name: Produce artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: docs
+          path: web_source/output
   
   deploy:
     needs: build
