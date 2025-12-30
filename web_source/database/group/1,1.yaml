@@ -1,0 +1,6 @@
+full_name: "Trivial Group"
+latex_name: "e"
+order: 1
+smallgroup_number: 1
+element_names: ['e']
+mult_table: [[0]]

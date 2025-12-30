@@ -1,0 +1,49 @@
+{% extends "compact.html" %}
+
+{% block title %}{{ full_name }} - tambara.fun{% endblock %}
+
+{% block content %}
+<h2>{{ full_name }}</h2>
+
+<section>
+    <h3>Basic Information</h3>
+    <ul>
+        <li><strong>Notated:</strong> \({{ latex_name }}\)</li>
+        <li><strong>Order:</strong> {{ order }}</li>
+        <li><strong>SmallGroup ID:</strong> ({{ order }}, {{ smallgroup_number }})</li>
+    </ul>
+</section>
+
+<section>
+    <h3>Elements</h3>
+    <ul>
+        {% for element in element_names %}
+        <li>{{ element }}</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section>
+    <h3>Multiplication Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>×</th>
+                {% for element in element_names %}
+                <th>{{ element }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in mult_table %}
+            <tr>
+                <th>{{ element_names[loop.index0] }}</th>
+                {% for cell in row %}
+                <td>{{ element_names[cell] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

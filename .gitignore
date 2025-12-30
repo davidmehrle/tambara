@@ -1,14 +1,19 @@
-## Core latex/pdflatex auxiliary files:
+## pdflatex auxiliary files:
 *.aux
 *.log
 *.out
 *.toc
 *.synctex*
 
-*.DS_Store
-
-## Intermediate documents:
+## Compiled documents
 *.dvi
 *.ps
 *.eps
 *.pdf
+
+## Python stuff
+.python-version
+uv.lock
+
+## MacOS stuff
+*.DS_Store

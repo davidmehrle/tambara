@@ -1,0 +1,6 @@
+[project]
+name = "tambara-fun-sitegen"
+version = "0.1.0"
+description = ""
+requires-python = ">=3.10"
+dependencies = ["jinja2>=3.1.6", "pyyaml>=6.0.3"]
