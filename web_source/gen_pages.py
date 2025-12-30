@@ -2,13 +2,14 @@ import yaml
 from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
 
-### Generate pages for groups ###
-
 env = Environment(loader=FileSystemLoader("templates"))
-group_template = env.get_template("group.html")
 
 output_dir = Path("output")
 output_dir.mkdir(exist_ok=True)
+
+### Generate pages for groups ###
+
+group_template = env.get_template("group.html")
 
 output_subdir = output_dir / "group"
 output_subdir.mkdir(exist_ok=True)
@@ -19,5 +20,5 @@ for data_file in Path("database/group").glob("*.yaml"):
         data = yaml.safe_load(f)
 
     html = group_template.render(data)
-    output = output_dir / f"{data_file.stem}.html"
+    output = output_subdir / f"{data_file.stem}.html"
     output.write_text(html)
