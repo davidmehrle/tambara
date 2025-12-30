@@ -39,9 +39,8 @@ jobs:
           mv web_source/output/* docs/
 
       - name: Produce artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-pages-artifact@v4
         with:
-          name: github-pages
           path: docs
   
   deploy:
