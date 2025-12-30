@@ -7,8 +7,11 @@ from pathlib import Path
 env = Environment(loader=FileSystemLoader("templates"))
 group_template = env.get_template("group.html")
 
-output_dir = Path("output/group")
+output_dir = Path("output")
 output_dir.mkdir(exist_ok=True)
+
+output_subdir = output_dir / "group"
+output_subdir.mkdir(exist_ok=True)
 
 for data_file in Path("database/group").glob("*.yaml"):
     print(f"Generating page for {data_file.stem}...")
