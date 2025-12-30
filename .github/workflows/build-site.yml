@@ -36,7 +36,7 @@ jobs:
 
       - name: Move output to /docs
         run: |
-          mv -r web_source/output/* docs/
+          mv web_source/output/* docs/
 
       - name: Produce artifact
         uses: actions/upload-artifact@v6
