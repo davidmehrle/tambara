@@ -16,9 +16,8 @@ def assert_raises(exc_type, func):
 def assert_pointwise_marks_multiply(A):
     for x in A.gens():
         for y in A.gens():
-            assert (x * y).marks() == vector(
-                ZZ, [a * b for a, b in zip(x.marks(), y.marks())]
-            )
+            assert (x * y).marks() == vector(ZZ, [a * b for a, b in zip(x.marks(), y.marks())])
+
 
 
 # Compatibility with Sage generator shorthand from the original smoke test.
